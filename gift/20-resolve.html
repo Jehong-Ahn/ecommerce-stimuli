@@ -24,7 +24,6 @@
       <hr>
 
       <form>
-
         <div class="form-row align-items-center mb-2">
           <div class="col-auto">
             <label class="mb-0">택배송장</label>
@@ -41,8 +40,16 @@
             <button type="button" class="btn btn-info" id="upload">업로드</button>
           </div>
         </div>
-
       </form>
+
+      <div id="result" class="card" style="display: none;">
+        <div class="card-body">
+          <p class="card-text">
+            5명의 고객분께 사은품을 추가하였습니다. 
+          </p>
+          <button type="button" class="btn btn-primary">다운로드</button>
+        </div>
+      </div>
 
     </div>
 
@@ -60,8 +67,12 @@
 
     <script>
       $(()=>{
-        $("#upload").click(() => {
-          $('#loading').modal('show');
+        $("#upload").click(()=>{
+          $("#loading").modal('show');
+          setTimeout(()=>{
+            $("#result").show();
+            $("#loading").modal('hide');
+          }, 3000);
         });
       });
     </script>
